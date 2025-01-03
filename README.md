@@ -7,13 +7,18 @@ A comprehensive command-line interface tool for managing Web3 operations, includ
 
 ## Features
 
-- 🔐 Secure wallet management (create, import, export)
+- 🔐 Secure wallet management (create, import, export, recover)
 - 🌐 Multi-network support (Ethereum, Bitcoin, Solana, Tezos)
 - 📜 Smart contract deployment and interaction
 - 💼 Token transactions and management
-- 📊 Blockchain data querying
+- 📊 Blockchain data querying and analysis
 - 🔍 Comprehensive logging and debugging
 - 🛠️ Utility functions (encryption, QR code generation)
+- 🎨 NFT operations and management
+- 🔒 Advanced security features
+- 🤖 Smart contract automation
+- 📈 Market data and price tracking
+- 🚀 DeFi operations
 
 ## Installation
 
@@ -102,6 +107,20 @@ wallet import --file <file_path> --network <network>
 
 # Delete wallet
 wallet delete --name <name> --network <network>
+
+# Recover wallet
+wallet recover --mnemonic <phrase> --network <network> --name <wallet_name>
+
+# Lock/Unlock wallet
+wallet lock --name <wallet_name>
+wallet unlock --name <wallet_name> --password <password>
+
+# Rename wallet
+wallet rename --old-name <old_name> --new-name <new_name>
+
+# Backup and restore wallet
+wallet backup --name <wallet_name> --destination <cloud|local>
+wallet restore --source <backup_file>
 ```
 
 ### Network Management
@@ -118,6 +137,12 @@ network switch --name <network_name>
 
 # Check network status
 network status --network <network_name>
+
+# Health check
+network health-check --network <network>
+
+# Configure failover nodes
+network failover --network <network> --nodes <rpc1,rpc2,...>
 ```
 
 ### Cryptocurrency Transactions
@@ -134,6 +159,15 @@ token receive --name <wallet_name> --network <network>
 
 # Approve token spending
 token approve --spender <address> --amount <value> --token <token_symbol> --network <network>
+
+# Batch transactions
+token batch-send --from <wallet_name> --to-file <recipients.csv> --token <token_symbol> --network <network>
+
+# Schedule transactions
+token schedule-send --from <wallet_name> --to <address> --amount <value> --token <token_symbol> --time <timestamp>
+
+# Estimate transaction fees
+token estimate-fee --from <wallet_name> --to <address> --amount <value> --token <token_symbol> --network <network>
 ```
 
 ### Smart Contract Operations
@@ -147,6 +181,15 @@ contract call --address <contract_address> --method <method_name> --args <arg1,a
 
 # Read contract data
 contract read --address <contract_address> --method <method_name> --network <network>
+
+# Watch contract events
+contract watch --address <contract_address> --event <event_name> --network <network>
+
+# Verify contract
+contract verify --address <contract_address> --source <source_file> --network <network>
+
+# Automate contract interactions
+contract automate --script <automation_file>
 ```
 
 ### Blockchain Information
@@ -163,16 +206,28 @@ info gas-price --network <network>
 
 # View address activity
 info activity --address <wallet_address> --network <network>
+
+# Watch address
+info watch-address --address <wallet_address> --network <network>
+
+# Track token prices
+info token-price --token <token_symbol> --network <network>
+
+# Stream market data
+info market-feed --exchange <exchange_name>
 ```
 
-### NFT Operations (Coming Soon)
+### NFT Operations
 
 ```bash
 # Mint NFT
-nft mint --contract <contract_address> --uri <metadata_uri> --network <network>
+nft mint --name <nft_name> --file <metadata.json> --network <network>
 
 # Transfer NFT
-nft transfer --token-id <token_id> --from <wallet_name> --to <address> --contract <contract_address> --network <network>
+nft transfer --from <wallet_name> --to <address> --token-id <id> --network <network>
+
+# List NFT on marketplace
+nft list --token-id <id> --marketplace <opensea|rarible>
 
 # Get NFT metadata
 nft metadata --token-id <token_id> --contract <contract_address> --network <network>
@@ -181,7 +236,7 @@ nft metadata --token-id <token_id> --contract <contract_address> --network <netw
 nft list --wallet <wallet_name> --network <network>
 ```
 
-### DeFi Operations (Coming Soon)
+### DeFi Operations
 
 ```bash
 # Swap tokens
@@ -192,6 +247,19 @@ defi liquidity add --pool <pool_address> --token-a <token_a_amount> --token-b <t
 
 # Remove liquidity
 defi liquidity remove --pool <pool_address> --amount <lp_token_amount> --wallet <wallet_name> --network <network>
+```
+
+### Security & Privacy
+
+```bash
+# Send private transactions
+privacy mix --amount <value> --token <token_symbol> --network <network>
+
+# Simulate transaction
+security simulate-tx --from <wallet_name> --to <address> --amount <value> --network <network>
+
+# Check address for phishing
+security check-address --address <address>
 ```
 
 ### Utility Functions
@@ -205,6 +273,28 @@ util decrypt --data <encrypted_string>
 
 # Generate QR code
 util qr-code --address <wallet_address>
+
+# Generate bulk QR codes
+util qr-bulk --file <wallets.csv>
+
+# Run custom scripts
+util run-script --file <script.js>
+
+# Optimize gas usage
+util gas-optimizer --transaction <transaction_data>
+```
+
+### System Maintenance
+
+```bash
+# Update CLI
+cli update
+
+# Check system health
+system health-check
+
+# Install plugins
+plugin install --name <plugin_name>
 ```
 
 ### Logging and Debugging
