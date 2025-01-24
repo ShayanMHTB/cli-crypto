@@ -1,0 +1,26 @@
+########################
+# Operating system files
+########################
+.DS_Store
+
+
+#########################
+# Project files & folders
+#########################
+.env
+
+logs/
+assets/
+node_modules/
+
+
+##############################
+# Artifacts files and folders
+##############################
+artifacts/wallets/
+
+
+##############################
+# Logs files and folders
+##############################
+logs/
